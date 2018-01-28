@@ -15,3 +15,21 @@
 .caja{
      margin-top: 0.9em;
 }
+img.img1{
+    height: 8em;
+    width: 8em;
+}
+#lat{
+    margin-top: 2em;
+    width: 13em;
+    min-height: 50em;
+    border: 0.5em solid blue;
+}
+.pie{
+    list-style: none;
+  
+}
+.pie li{
+    display: inline;
+    margin-right: 3em;
+}
