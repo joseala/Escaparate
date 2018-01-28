@@ -44,8 +44,8 @@
                     <ul class="nav navbar-nav navbar-right ">
                         <!-- Authentication Links -->
                         @guest
-                            <li><button type="button" class="btn btn-secondary btn-lg boton"><a href="{{ route('login') }}">Login</a></button></li>
-                            <li><button type="button" class="btn btn-success btn-lg boton"><a href="{{ route('register') }}">Register</a></button></li>                     
+                            <li><a href="{{ route('login') }}">Login</a></li>
+                            <li><a href="{{ route('register') }}">Register</a></li>                     
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">

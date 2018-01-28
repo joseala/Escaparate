@@ -1,4 +1,4 @@
-<section class="container buscador">
+<section class="container-fluid buscador">
             <div class="col-sm-4 col-md-2">
                 <ul class="nav navbar-nav">             
                     <li class="dropdown">
