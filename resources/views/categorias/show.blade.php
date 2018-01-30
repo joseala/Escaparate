@@ -31,7 +31,7 @@
             @foreach( $categoria->productos as $producto )
                 <div class="row lista">
                     <div class="col-sm-10 col-lg-4">    
-                        <a href="{{ route('categorias.productos.show', [$categoria->slug, $producto->slug]) }}"><img class='img1' src="{{ $producto->imagen }}"></a>
+                        <a href="{{ route('categorias.productos.show', [$categoria->id, $producto->id]) }}"><img class='img1' src="{{ $producto->imagen }}"></a>
                     </div> 
                     <div class="col-sm-10 col-lg-4">
                         <h3>{{ $producto->name }}</h3>

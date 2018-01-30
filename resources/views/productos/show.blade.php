@@ -8,7 +8,7 @@
 
     @endcomponent
     <h2>
-        {!! link_to_route('categorias.show', $categoria->name, [$categoria->slug]) !!} -
+        {!! link_to_route('categorias.show', $categoria->name, [$categoria->id]) !!} -
         {{$producto->name}}
     </h2>
     @component('componentes.descripcion', ['producto' => $producto ])

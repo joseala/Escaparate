@@ -1,11 +1,14 @@
 @extends('layouts.app')
  
 @section('content')
-    <?php $categorias = $datos['categorias'];
+     <?php $categorias = $datos['categorias'];
     $productos = $datos['productos']?>
     @component('componentes.busca', ['categorias' => $categorias ])
 
-    @endcomponent  
+    @endcomponent 
+    <div>
+        {{ "Resultados: ".$productos->count() }}
+    </div>
     <main class="container-fluid">
         <div class="col-md-1 col-lg-1 ">    
             
@@ -24,7 +27,8 @@
                 <div class="col-sm-10 col-lg-2">                   
                         <h4>Oferta</h4>
                 </div>
-            </div>           
+            </div>
+                
                 @foreach( $productos as $producto )
                     <div class="row lista">
                         <div class="col-sm-10 col-lg-4">    
@@ -45,10 +49,8 @@
                             @endguest
                         </div>
                     </div>      
-                @endforeach 
-                {{ $productos->links() }}
-        </div>
-        
+                @endforeach
+        </div> 
         <div class="col-md-3 col-lg-3">    
             @component('componentes.aside')
 
@@ -59,3 +61,5 @@
 
     @endcomponent 
 @endsection
+
+

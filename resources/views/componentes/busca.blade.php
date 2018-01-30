@@ -6,7 +6,7 @@
                       <ul class="dropdown-menu">
                         @foreach( $categorias as $categoria )
                             <li>
-                                <a href="{{ route('categorias.show', $categoria->slug) }}">{{ $categoria->name }}</a>
+                                <a href="{{ route('categorias.show', $categoria->id) }}">{{ $categoria->name }}</a>
                             </li>
                         @endforeach  
                       </ul>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Categoria;
@@ -22,11 +23,16 @@ class CategoriasController extends Controller
     public function index(Request $request)
     {
         $categorias= Categoria::all();
+        $productos = DB::table('productos')->paginate(3);
         if(isset($request->name)){
-            $productos = Producto::name($request->get('name'));
-            return view('categorias.index',compact('categorias','productos'));
+             $productos = Producto::where('name', $request->name)->get();
+             
+            //$productos = Producto::name($request->get('name'));
+            $datos = ['categorias' => $categorias, 'productos' => $productos];
+            return view('categorias.busquedas',compact('datos'));
         }else{
-            return view('categorias.index', compact('categorias'));
+            $datos = ['categorias' => $categorias, 'productos' => $productos ];
+            return view('categorias.index', compact('datos'));
         }
     }
 
@@ -57,9 +63,10 @@ class CategoriasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Categoria $categoria)
-    {
+    public function show($id)
+    {   
         $categorias= Categoria::all();
+        $categoria = Categoria::find($id);
         $datos = ['categoria' => $categoria, 'categorias' => $categorias];
         return view('categorias.show',compact('datos'));
     }

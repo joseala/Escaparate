@@ -12,6 +12,7 @@ class Producto extends Model
         return $this->belongsTo('App\Categoria');
     }
     public function scopeName($query, $name) {       
-        return $query->where('name', $name);
+       $productos = $query->where('name', $name);
+       return $productos;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Categoria;
@@ -51,10 +52,11 @@ class ProductosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Categoria $categoria, Producto $producto)
-    {
-       
+    public function show($idc, $idp)
+    {      
         $categorias= Categoria::all();
+        $categoria = Categoria::find($idc);
+        $producto = Producto::find($idp);
         $datos = ['categoria' => $categoria, 'categorias' => $categorias, 'producto' => $producto];
         return view('productos.show',compact('datos'));
         
