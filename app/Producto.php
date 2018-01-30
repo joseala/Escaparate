@@ -11,4 +11,7 @@ class Producto extends Model
     public function categoria() {
         return $this->belongsTo('App\Categoria');
     }
+    public function scopeName($query, $name) {       
+        return $query->where('name', $name);
+    }
 }

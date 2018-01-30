@@ -16,6 +16,7 @@
 Auth::routes();
 
 Route::get('/', 'CategoriasController@index');
+Route::get('/categorias', 'CategoriasController@show');
 
 Route::resource('categorias', 'CategoriasController');
 Route::resource('categorias.productos', 'ProductosController');

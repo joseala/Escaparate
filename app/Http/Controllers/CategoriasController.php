@@ -19,10 +19,15 @@ class CategoriasController extends Controller
     /**public function __construct() {
             $this->middleware('auth');
     }*/
-    public function index()
+    public function index(Request $request)
     {
         $categorias= Categoria::all();
-        return view('categorias.index', compact('categorias'));
+        if(isset($request->name)){
+            $productos = Producto::name($request->get('name'));
+            return view('categorias.index',compact('categorias','productos'));
+        }else{
+            return view('categorias.index', compact('categorias'));
+        }
     }
 
     /**
@@ -54,7 +59,9 @@ class CategoriasController extends Controller
      */
     public function show(Categoria $categoria)
     {
-        return view('categorias.show', compact('categoria'));
+        $categorias= Categoria::all();
+        $datos = ['categoria' => $categoria, 'categorias' => $categorias];
+        return view('categorias.show',compact('datos'));
     }
 
     /**

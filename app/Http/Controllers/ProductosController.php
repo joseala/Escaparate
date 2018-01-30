@@ -53,7 +53,11 @@ class ProductosController extends Controller
      */
     public function show(Categoria $categoria, Producto $producto)
     {
-        return view('productos.show', compact('categoria', 'producto'));
+       
+        $categorias= Categoria::all();
+        $datos = ['categoria' => $categoria, 'categorias' => $categorias, 'producto' => $producto];
+        return view('productos.show',compact('datos'));
+        
     }
 
     /**
@@ -89,4 +93,5 @@ class ProductosController extends Controller
     {
         //
     }
+    
 }

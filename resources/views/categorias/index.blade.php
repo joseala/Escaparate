@@ -1,7 +1,7 @@
 @extends('layouts.app')
  
 @section('content')
-    @component('busca')
+    @component('componentes.busca', ['categorias' => $categorias ])
 
     @endcomponent 
     <main class="container-fluid">
@@ -48,12 +48,12 @@
             @endforeach
         </div> 
         <div class="col-md-3 col-lg-3">    
-            @component('aside')
+            @component('componentes.aside')
 
             @endcomponent
         </div>   
     </main>
-    @component('pie')
+    @component('componentes.pie')
 
     @endcomponent 
 @endsection

@@ -1,0 +1,4 @@
+{{ $producto->name }}
+
+{{$producto->description }}
+
