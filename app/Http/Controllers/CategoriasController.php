@@ -22,6 +22,7 @@ class CategoriasController extends Controller
     }*/
     public function index(Request $request)
     {
+        
         $categorias= Categoria::all();
         $productos = DB::table('productos')->paginate(6);
         if(isset($request->name)){

@@ -6,21 +6,18 @@
     @component('componentes.busca', ['categorias' => $categorias ])
 
     @endcomponent 
-    <h1><a href="{{ route('categorias.index') }}">{{ 'Principal >' }}</a>{{ $categoria->name }}</h1>
+    <h5><a href="{{ route('categorias.index') }}">{{ 'Principal >' }}</a>{{ $categoria->name }}</h5>
     <br>
-    <main class="container-fluid">
-        <div class="col-md-1 col-lg-1 ">    
-            
-        </div>
+    <main class="container">
         <div class="col-md-8 col-lg-8"> 
             <div class="row">
                 <div class="col-sm-10 col-lg-4">    
 
                 </div> 
-                <div class="col-sm-10 col-lg-3">
+                <div class="col-sm-10 col-lg-4">
                     <h4>Denominaci&oacute;n</h4>
                 </div>
-                <div class="col-sm-10 col-lg-3">
+                <div class="col-sm-10 col-lg-2">
                     <h4>Precio</h4>
                 </div>                
                 <div class="col-sm-10 col-lg-2">                   
@@ -49,7 +46,7 @@
                 </div>      
             @endforeach
         </div> 
-        <div class="col-md-3 col-lg-3">    
+        <div class="col-md-4 col-lg-4">    
             @component('componentes.aside')
 
             @endcomponent
