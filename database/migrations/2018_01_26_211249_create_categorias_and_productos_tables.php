@@ -17,7 +17,6 @@ class CreateCategoriasAndProductosTables extends Migration
         {
                 $table->increments('id');
                 $table->string('name')->default('');
-                $table->string('slug')->default('');
                 $table->string('imagen')->default('');
                 $table->timestamps();
         });
@@ -25,8 +24,7 @@ class CreateCategoriasAndProductosTables extends Migration
         Schema::create('productos', function(Blueprint $table) {
                 $table->increments('id');
                 $table->integer('categoria_id')->unsigned()->default(0);
-                $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
-                $table->string('slug')->default('');
+                $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');;
                 $table->string('name')->default('');
                 $table->string('imagen')->default('');
                 $table->text('description');
@@ -44,5 +42,6 @@ class CreateCategoriasAndProductosTables extends Migration
     public function down()
     {
         Schema::dropIfExists('categorias');
+        Schema::dropIfExists('productos');
     }
 }

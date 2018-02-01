@@ -23,7 +23,7 @@ class CategoriasController extends Controller
     public function index(Request $request)
     {
         $categorias= Categoria::all();
-        $productos = DB::table('productos')->paginate(3);
+        $productos = DB::table('productos')->paginate(6);
         if(isset($request->name)){
              $productos = Producto::where('name', $request->name)->get();
              
@@ -104,4 +104,12 @@ class CategoriasController extends Controller
     {
         //
     }
+    public function busca(Request $request)
+    {
+        $categorias= Categoria::all();
+        $productos = Producto::where('name', $request->name)->get();
+        $datos = ['categorias' => $categorias, 'productos' => $productos];
+        return view('categorias.busquedas',compact('datos'));
+    }
+    
 }

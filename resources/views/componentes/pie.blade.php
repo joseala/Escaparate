@@ -7,7 +7,7 @@
         <li>Ayuda</li>
     </ul></div>
       
-    <div class="row">
+    <div class="row registrado">
         <h5> &reg;4Gflota S.L.</h5>
     </div>
 </div>

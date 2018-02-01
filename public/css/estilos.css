@@ -1,6 +1,8 @@
 .login{
-
     height: 8em;
+}
+.logueo{
+    margin-top: 2.5em;
 }
 .boton{
     margin-top: 2.5em;
@@ -15,9 +17,20 @@
 .caja{
      margin-top: 0.9em;
 }
+img.logo{
+    height: 5em;
+    width: 9em;
+}
+img.imgc{
+    margin-left: 24em;
+    width: 12em;
+}
+.imgCarousel{
+    text-align:center;
+}
 img.img1{
-    height: 8em;
-    width: 8em;
+    height: 7em;
+    width: 10em;
 }
 .lat{
     margin-top: 4em;
@@ -28,13 +41,23 @@ img.img1{
 }
 .pie{
     list-style: none;
-  
+   margin-left: 12em;
+   margin-top: 0.5em;
 }
 .pie li{
     display: inline;
     margin-right: 3em;
 }
+.registrado h5{
+    margin-left: 27em;
+}
 .lista{
+    height:10em;
     border: 0.2em solid red;
     margin-top: 1em;
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+.paginacion{
+    margin-left: 27em;
 }

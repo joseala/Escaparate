@@ -46,7 +46,9 @@
                         </div>
                     </div>      
                 @endforeach 
-                {{ $productos->links() }}
+                <div class="paginacion">
+                    {{ $productos->links() }}
+                </div>              
         </div>
         
         <div class="col-md-3 col-lg-3">    

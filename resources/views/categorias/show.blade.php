@@ -6,8 +6,7 @@
     @component('componentes.busca', ['categorias' => $categorias ])
 
     @endcomponent 
-    <h1><a href="{{ route('categorias.index') }}">{{ 'Categorias' }}</a></h1>
-    <h2>{{ $categoria->name }}</h2>
+    <h1><a href="{{ route('categorias.index') }}">{{ 'Principal >' }}</a>{{ $categoria->name }}</h1>
     <br>
     <main class="container-fluid">
         <div class="col-md-1 col-lg-1 ">    
