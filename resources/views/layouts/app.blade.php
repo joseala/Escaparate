@@ -13,14 +13,15 @@
         <!-- Styles -->   
         <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
         <link href="{{ asset('css/pie.css') }}" rel="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+        <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 
     </head>
     <body>
         <div id="app">
             <nav class="navbar navbar-default navbar-static-top">
                 <div class="container-fluid login">
-                    <div class="navbar-header col-lg-2">
+                    <div class="navbar-header col-md-2 col-lg-2">
 
                         <!-- Collapsed Hamburger -->
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
@@ -35,7 +36,7 @@
                             <img class="logo" src="{{ asset('imagenes/logo.png') }}"/>
                         </a>
                     </div>
-                    <div class="col-lg-8">
+                    <div class="col-md-8 col-lg-8">
                         <div id="myCarousel" class="carousel slide" data-ride="carousel">
                             <!-- Indicators -->
                             <ol class="carousel-indicators">
@@ -72,7 +73,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class=" collapse navbar-collapse col-lg-2 logueo" id="app-navbar-collapse">
+                    <div class=" collapse navbar-collapse col-md-2 col-lg-2 logueo" id="app-navbar-collapse">
                         <!-- Left Side Of Navbar -->
                         <ul class="nav navbar-nav">
                             &nbsp;
@@ -82,8 +83,8 @@
                         <ul class="nav navbar-nav navbar-right ">
                             <!-- Authentication Links -->
                             @guest
-                            <li><a href="{{ route('login') }}"><button type="button" class="btn btn-success">Login</button></a></li>
-                            <li><a href="{{ route('register') }}"><button type="button" class="btn btn-danger">Registrarse</button></a></li>                     
+                            <li><a class="btn btn-success btn-lg btn-block" href="{{ route('login') }}" role="button">Login</a></li>
+                            <li><a class="btn btn-info btn-lg btn-block" href="{{ route('register') }}" role="button">Registrarse</a></li>                    
                             @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
@@ -114,7 +115,8 @@
         </div>
 
         <!-- Scripts -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    
+        <script src="{{ asset('js/app.js') }}"></script>
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->    
     </body>
 </html>

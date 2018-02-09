@@ -30,8 +30,8 @@
                 <div class="col-sm-10 col-lg-4">
                     <h3>{{ $producto->name }}</h3>
                 </div>
-                <div class="col-sm-10 col-lg-2">
-                    <h4>{{ $producto->precio }}€</h4>
+                <div class="col-sm-10 col-lg-2 precio">
+                    <h2>{{ $producto->precio }}€</h2>
                 </div>                
                 <div class="col-sm-10 col-lg-2">
                     @auth

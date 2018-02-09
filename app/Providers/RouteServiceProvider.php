@@ -29,10 +29,10 @@ class RouteServiceProvider extends ServiceProvider
         Route::model('producto' , '\App\Producto::class');
         
         Route::bind('producto', function($value, $route) {
-            return \App\Producto::whereSlug($value)->first();
+            return \App\Producto::whereid($value)->first();
         });
         Route::bind('categoria', function($value, $route) {
-            return \App\Categoria::whereSlug($value)->first();
+            return \App\Categoria::whereid($value)->first();
         });
         
         

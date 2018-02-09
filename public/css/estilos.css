@@ -2,20 +2,23 @@
     height: 8em;
 }
 .logueo{
-    margin-top: 2.5em;
+    margin-top: 1.5em;
 }
-.boton{
-    margin-top: 2.5em;
-    margin-right: 1em;
+.logueo li{
+  display: block;  
 }
 .buscador{
     background-color: aquamarine;
     margin-top: -1.6em;
     padding-top: 1em;
     padding-bottom: 1em;
+    font-family: "RAVIE";
 }
 .caja{
      margin-top: 0.9em;
+}
+.precio h2{
+    margin-top: 1em;
 }
 img.logo{
     height: 5em;
@@ -26,7 +29,7 @@ img.logo2{
     width: 6em;
 }
 img.imgc{
-    margin-left: 24em;
+    margin-left: 38%;
     width: 12em;
 }
 .imgCarousel{
@@ -47,6 +50,7 @@ img.imgd{
     text-align: center;
     height: 55em;
     border: 0.2em solid blue;
+    font-family: "ROCK";
 }
 .pie{
     list-style: none;
@@ -66,6 +70,7 @@ img.imgd{
     margin-top: 1em;
     padding-bottom: 1em;
     padding-top: 1em;
+    font-family: "ROCK";
 }
 .paginacion{
     margin-left: 27em;
@@ -79,4 +84,17 @@ img.imgd{
 .des{
     margin-top: 4em;
     
+}
+@font-face {
+  font-family: "RAVIE";
+  src: url(../font/RAVIE.TTF);
+}
+@font-face {
+	font-family: "SANS";
+  src: url(../font/sans.ttf);
+
+}
+@font-face {
+	font-family: "ROCK";
+  src: url(../font/rockwebb.ttf);
 }

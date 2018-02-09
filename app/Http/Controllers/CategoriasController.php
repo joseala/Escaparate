@@ -26,9 +26,7 @@ class CategoriasController extends Controller
         $categorias= Categoria::all();
         $productos = DB::table('productos')->paginate(6);
         if(isset($request->name)){
-             $productos = Producto::where('name', $request->name)->get();
-             
-            //$productos = Producto::name($request->get('name'));
+            $productos = Producto::where('name','LIKE','%' . $request->name . '%')->get();        
             $datos = ['categorias' => $categorias, 'productos' => $productos];
             return view('categorias.busquedas',compact('datos'));
         }else{
