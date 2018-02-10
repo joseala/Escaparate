@@ -6,7 +6,7 @@
     @component('componentes.busca', ['categorias' => $categorias ])
 
     @endcomponent  
-    <main class="container">
+    <main class="container-fluid">
         <div class="col-md-8 col-lg-8"> 
             <div class="row">
                 <div class="col-sm-2 col-lg-4">
@@ -53,7 +53,10 @@
             @endcomponent
         </div>   
     </main>
-    @component('componentes.pie')
+    <div class="pie">
+        @component('componentes.pie')
 
-    @endcomponent 
+        @endcomponent     
+    </div>
+    
 @endsection

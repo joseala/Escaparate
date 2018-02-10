@@ -11,4 +11,5 @@
     @component('componentes.descripcion', ['producto' => $producto ])
     
     @endcomponent
+    
 @endsection
