@@ -30,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    //protected $redirectTo = '/';
+    protected $redirectTo = '/sendemail';
 
     /**
      * Create a new controller instance.
@@ -66,28 +66,27 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $data['confirmation_code'] = str_random(25);
 
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'confirmation_code' => $data['confirmation_code']
+            
         ]);
         // Send confirmation 
         //dd(Config::get('mail'));
-        //Mail::to($data['email'])->send(new WelcomeMail($user));
         
-        /**Mail::send('emails.confirmation_code', $data, function($message) use ($data) {
-            $message->to($data['email'], $data['name'])->subject('Por favor confirma tu correo');
+        /**$datas = array(
+        'name' => 'Enviado por App Laravel',
+        );
+        Mail::send('emails.welcome', $datas, function($message)use ($user){
+        
+            $message->from('jmalamillo79@gmail.com', 'Curso Laravel');
+            $message->to($user->email)->subject('Prueba email app Laravel');
+        
         });*/
-
+        
         return $user;
-        /**return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);*/
     }
     
     public function verify($code)

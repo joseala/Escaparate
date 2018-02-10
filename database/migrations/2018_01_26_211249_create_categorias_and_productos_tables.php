@@ -41,7 +41,7 @@ class CreateCategoriasAndProductosTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categorias');
-        Schema::dropIfExists('productos');
+        Schema::drop('categorias');
+        Schema::drop('productos');
     }
 }

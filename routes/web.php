@@ -19,7 +19,7 @@ Route::get('/', 'CategoriasController@index');
 Route::get('/categorias/{id}', 'CategoriasController@show');
 Route::get('/categorias/{idc}/productos/{idp}', 'ProductosController@show');
 //Route::get('/verificar/email/{code}', 'RegisterController@verify');
-Route::get('/home',function(){
+Route::get('/sendemail',function(){
     $data = array(
         'name' => 'Enviado por App Laravel',
     );
