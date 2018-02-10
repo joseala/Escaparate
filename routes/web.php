@@ -34,5 +34,7 @@ Route::get('/sendemail',function(){
     return view('emails.confirmation_code');
     
 });
+Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
+
 Route::resource('categorias', 'CategoriasController');
 Route::resource('categorias.productos', 'ProductosController');

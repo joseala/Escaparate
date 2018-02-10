@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\WelcomeMail;
+use App\Mail\VerifyMail;
 
 
 class RegisterController extends Controller
@@ -30,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/sendemail';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -73,33 +73,35 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             
         ]);
+        
+        $verifyUser = \App\VerifyUser::create([
+            'user_id' => $user->id,
+            'token' => str_random(40)
+        ]);
+ 
+        Mail::to($user->email)->send(new VerifyMail($user));
         // Send confirmation 
         //dd(Config::get('mail'));
-        
-        /**$datas = array(
-        'name' => 'Enviado por App Laravel',
-        );
-        Mail::send('emails.welcome', $datas, function($message)use ($user){
-        
-            $message->from('jmalamillo79@gmail.com', 'Curso Laravel');
-            $message->to($user->email)->subject('Prueba email app Laravel');
-        
-        });*/
         
         return $user;
     }
     
-    public function verify($code)
+    public function verifyUser($token)
     {
-        $user = User::where('confirmation_code', $code)->first();
-
-        if (! $user)
-            return redirect('/');
-
-        $user->confirmed = true;
-        $user->confirmation_code = null;
-        $user->save();
-
-        return redirect('/categorias')->with('notification', 'Has confirmado correctamente tu correo!');
+        $verifyUser = \App\VerifyUser::where('token', $token)->first();
+        if(isset($verifyUser) ){
+            $user = $verifyUser->user;
+            if(!$user->verified) {
+                $verifyUser->user->verified = 1;
+                $verifyUser->user->save();
+                $status = "Your e-mail is verified. You can now login.";
+            }else{
+                $status = "Your e-mail is already verified. You can now login.";
+            }
+        }else{
+            return redirect('/login')->with('warning', "Sorry your email cannot be identified.");
+        }
+ 
+        return redirect('/login')->with('status', $status);
     }
 }

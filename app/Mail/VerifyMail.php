@@ -7,11 +7,12 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class WelcomeMail extends Mailable
+class VerifyMail extends Mailable
 {
     use Queueable, SerializesModels;
-
+    
     public $user;
+
     /**
      * Create a new message instance.
      *
@@ -29,6 +30,6 @@ class WelcomeMail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.welcome');
+        return $this->view('emails.verifyUser');
     }
 }
