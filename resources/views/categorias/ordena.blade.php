@@ -46,7 +46,7 @@
             </div>      
         @endforeach 
                 <div class="paginacion">
-                    {{ $productos->links() }}
+                    {{ $productos->appends(['ordena' => $ordena])->links() }}
                 </div>              
         </div>       
         <div class="col-md-4 col-lg-4">    
@@ -62,3 +62,5 @@
     </div>
     
 @endsection
+
+

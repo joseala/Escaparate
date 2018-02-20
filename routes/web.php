@@ -16,11 +16,12 @@
 Auth::routes();
 
 Route::get('/', 'CategoriasController@index');
-Route::get('/categorias/{id}', 'CategoriasController@show');
-Route::get('/categorias/{idc}/productos/{idp}', 'ProductosController@show');
+//Route::get('/categorias/{id}', 'CategoriasController@show');
+//Route::get('/categorias/{idc}/productos/{idp}', 'ProductosController@show');
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 Route::get('/mapas', 'SoapController@index');
-
+Route::get('/buscar','HomeController@buscar');
+Route::get('/ordena','HomeController@ordena');
 Route::resource('categorias', 'CategoriasController');
 Route::resource('categorias.productos', 'ProductosController');
 

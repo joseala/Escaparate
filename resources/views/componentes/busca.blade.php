@@ -13,8 +13,8 @@
                     </li>
                 </ul>
             </div>
-            <div class="flipkart-navbar-search smallsearch col-sm-8 col-xs-10 caja">
-                {!! Form::open(['route' => 'categorias.index', 'method' => 'GET']) !!}
+            <div class="flipkart-navbar-search smallsearch col-sm-6 col-md-8 col-xs-10 caja">
+                {!! Form::open(['url' => 'buscar', 'method' => 'GET']) !!}
                     {!! Form::text('name',null,['class' => 'flipkart-navbar-input col-xs-11', 'placeholder' => 'Buscar producto' ]) !!}
                     <button class="flipkart-navbar-button col-xs-1">
                         <svg width="15px" height="15px">
@@ -23,6 +23,9 @@
                     </button>
                 {!! Form::close() !!}     
              
-            </div>           
+            </div> 
+            <div class="col-sm-2 col-md-2">
+                <h3><a href="/mapas">Localízanos</a></h3>
+            </div>
 </section>
 

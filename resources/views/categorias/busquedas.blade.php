@@ -1,19 +1,24 @@
 @extends('layouts.app')
  
 @section('content')
-     <?php $categorias = $datos['categorias'];
-    $productos = $datos['productos']?>
+     
     @component('componentes.busca', ['categorias' => $categorias ])
 
     @endcomponent 
     <div>
-        {{ "Resultados: ".$productos->count() }}
+        @if($productos->count() !== 0)
+            {{ "Resultados: ".$productos->count() }}
+        @else
+            {{ "Resultados: No hay resultados"}}
+        @endif
     </div>
     <main class="container-fluid">
         <div class="col-md-8 col-lg-8"> 
             <div class="row">
                 <div class="col-sm-10 col-lg-4">    
-
+                    <div class="flipkart-navbar-search smallsearch col-sm-6 col-md-8 col-xs-10 caja">
+                               
+                    </div> 
                 </div> 
                 <div class="col-sm-10 col-lg-3">
                     <h4>Denominaci&oacute;n</h4>
@@ -47,6 +52,9 @@
                         </div>
                     </div>      
                 @endforeach
+                <div class="paginacion">
+                    {{ $productos->appends(['name' => $name])->links() }}
+                </div>
         </div> 
         <div class="col-md-3 col-lg-4">    
             @component('componentes.aside')

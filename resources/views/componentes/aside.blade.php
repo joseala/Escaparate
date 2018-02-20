@@ -1,7 +1,4 @@
 <div class="container-fluid">
-    <div class="container-fluid">
-        <a href="/mapas">Localizanos</a>
-    </div>
     <div class="container-fluid " id="lat">
         <div class="row">
             <h4>Localizaci&oacute;n en tiempo real</h4>

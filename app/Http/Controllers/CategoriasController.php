@@ -21,18 +21,11 @@ class CategoriasController extends Controller
             $this->middleware('auth');
     }*/
     public function index(Request $request)
-    {
-        
-        $categorias= Categoria::all();
-        $productos = DB::table('productos')->paginate(6);
-        if(isset($request->name)){
-            $productos = Producto::where('name','LIKE','%' . $request->name . '%')->get();        
-            $datos = ['categorias' => $categorias, 'productos' => $productos];
-            return view('categorias.busquedas',compact('datos'));
-        }else{
-            $datos = ['categorias' => $categorias, 'productos' => $productos ];
-            return view('categorias.index', compact('datos'));
-        }
+    {    
+        $categorias= Categoria::all();       
+        $productos = Producto::paginate(6); 
+        return view('categorias.index', compact('categorias','productos'));
+           
     }
 
     /**
@@ -62,12 +55,11 @@ class CategoriasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Categoria $categoria)
     {   
+        
         $categorias= Categoria::all();
-        $categoria = Categoria::find($id);
-        $datos = ['categoria' => $categoria, 'categorias' => $categorias];
-        return view('categorias.show',compact('datos'));
+        return view('categorias.show',compact('categoria', 'categorias'));
     }
 
     /**
@@ -88,9 +80,9 @@ class CategoriasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Categoria $categoria, Request $request)
+    public function update(Request $request)
     {
-        //
+      
     }
 
     /**
@@ -103,12 +95,10 @@ class CategoriasController extends Controller
     {
         //
     }
-    public function busca(Request $request)
+    public function coloca()
     {
-        $categorias= Categoria::all();
-        $productos = Producto::where('name', $request->name)->get();
-        $datos = ['categorias' => $categorias, 'productos' => $productos];
-        return view('categorias.busquedas',compact('datos'));
+        If($request){
+            //
+        }
     }
-    
 }

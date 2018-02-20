@@ -1,8 +1,7 @@
 @extends('layouts.app')
  
 @section('content') 
-    <?php $categorias = $datos['categorias'];
-    $categoria = $datos['categoria']; ?>
+   
     @component('componentes.busca', ['categorias' => $categorias ])
 
     @endcomponent 
@@ -11,8 +10,8 @@
     <main class="container-fluid">
         <div class="col-md-8 col-lg-8"> 
             <div class="row">
-                <div class="col-sm-10 col-lg-4">    
-
+                <div class="col-sm-10 col-lg-4">                       
+                                               
                 </div> 
                 <div class="col-sm-10 col-lg-4">
                     <h4>Denominaci&oacute;n</h4>
@@ -45,6 +44,7 @@
                     </div>
                 </div>      
             @endforeach
+            
         </div> 
         <div class="col-md-4 col-lg-4">    
             @component('componentes.aside')

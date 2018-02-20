@@ -4,7 +4,7 @@
         <meta  http-equiv="Content-Type" content="text/html" charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <meta name="google-signin-client_id" content="624538345902-q62ne1bkl3ltdhnrjqlg8ahejg7c83hm.apps.googleusercontent.com">
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -15,6 +15,7 @@
         <link href="{{ asset('css/pie.css') }}" rel="stylesheet">
         <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
         <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     </head>
     <body>
@@ -85,12 +86,13 @@
                             @guest
                             <li><a class="btn btn-success btn-lg btn-block" href="{{ route('login') }}" role="button">Login</a></li>
                             <li><a class="btn btn-info btn-lg btn-block" href="{{ route('register') }}" role="button">Registrarse</a></li>
+                            <div class="g-signin2" data-onsuccess="onSignIn"></div>
                             @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu ">
                                     <li>
                                         <a href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
@@ -103,7 +105,7 @@
                                     </li>
                                 </ul>
                             </li>
-                             <li><a class="btn btn-danger btn-lg btn-block" href="{{ route('/maps') }}" role="button">Nuestra Localización</a></li>
+                           
                             @endguest
                         </ul>
                     </div>
@@ -135,6 +137,7 @@
           });
         }
         </script>
+        <script type="text/javascript" src="{{ asset('js/front.js') }}"></script>
         <!--key = credenciales google developer console, claves de API -->
         <script async defer
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFpuyGMRIUr_NuGVxQtOtb752biDCDhXw&callback=initMap">
