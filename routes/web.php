@@ -22,6 +22,8 @@ Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 Route::get('/mapas', 'SoapController@index');
 Route::get('/buscar','HomeController@buscar');
 Route::get('/ordena','HomeController@ordena');
+Route::get('/editarPerfil','HomeController@editarPerfil');
+Route::view('/perfil','perfil');
 Route::resource('categorias', 'CategoriasController');
 Route::resource('categorias.productos', 'ProductosController');
 

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome Email</title>
+    <title>Email de bienvenida</title>
 </head>
  
 <body>
-<h2>Welcome to the site {{$user['name']}}</h2>
+<h2>Bienvenido {{$user['name']}} a la web de 4GFlota.</h2>
 <br/>
-Your registered email-id is {{$user['email']}} , Please click on the below link to verify your email account
+Tu email es {{$user['email']}} , Porfavor haga click en el link para verifivar su cuenta.
 <br/>
-<a href="{{url('user/verify', $user->verifyUser->token)}}">Verify Email</a>
+<a href="{{url('user/verify', $user->verifyUser->token)}}">Verificar Email</a>
 </body>
  
 </html>

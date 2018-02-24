@@ -15,7 +15,7 @@
         <link href="{{ asset('css/pie.css') }}" rel="stylesheet">
         <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
         <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" ></script> 
 
     </head>
     <body>
@@ -65,11 +65,11 @@
                             </div>
                             <!-- Left and right controls -->
                             <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                >>
                                 <span class="sr-only">Previous</span>
                             </a>
                             <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                <<
                                 <span class="sr-only">Next</span>
                             </a>
                         </div>
@@ -86,7 +86,7 @@
                             @guest
                             <li><a class="btn btn-success btn-lg btn-block" href="{{ route('login') }}" role="button">Login</a></li>
                             <li><a class="btn btn-info btn-lg btn-block" href="{{ route('register') }}" role="button">Registrarse</a></li>
-                            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                        
                             @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
@@ -103,6 +103,11 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+                                    <li>
+                                        <a href="/perfil">
+                                            Perfil
+                                        </a>                        
+                                    </li>
                                 </ul>
                             </li>
                            
@@ -113,58 +118,36 @@
             </nav>
 
             @yield('content')
-
-
+            
         </div>
-        <script type="text/javascript">
-        function $(id) {
-          return document.getElementById(id);
-        }
-        var map,
-            lat = parseFloat($('mapa').dataset.lat),
-            lng = parseFloat($('mapa').dataset.lng),
-            marker,
-            title = '';
-        function initMap() {
-          map = new google.maps.Map(document.getElementById('mapa'), {
-            center: {lat: lat , lng: lng },
-            zoom: 5 
-          });
-          marker = new google.maps.Marker({
-            position: {lat: lat , lng: lng },
-            map: map,
-            title: title,
-          });
-        }
-        </script>
         <script type="text/javascript" src="{{ asset('js/front.js') }}"></script>
+        <script src="https://apis.google.com/js/client:platform.js?onload=startApp"></script>
+        <script type="text/javascript">
+            function $(id) {
+              return document.getElementById(id);
+            }
+            var map,
+                lat = parseFloat($('mapa').dataset.lat),
+                lng = parseFloat($('mapa').dataset.lng),
+                marker,
+                title = '';
+            function initMap() {
+              map = new google.maps.Map(document.getElementById('mapa'), {
+                center: {lat: lat , lng: lng },
+                zoom: 5 
+              });
+              marker = new google.maps.Marker({
+                position: {lat: lat , lng: lng },
+                map: map,
+                title: title,
+              });
+            }
+        </script>          
         <!--key = credenciales google developer console, claves de API -->
         <script async defer
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFpuyGMRIUr_NuGVxQtOtb752biDCDhXw&callback=initMap">
         </script>
-        <!-- Scripts 
-        <script>
-          function initMap() {
-            var uluru = {lat: 40.5180063, lng: -3.6564008000000285};
-            var map = new google.maps.Map(document.getElementById('mapa'), {
-              zoom: 12,
-              center: uluru
-              
-            });
-            var marker = new google.maps.Marker({
-              position: uluru,
-              map: map,
-              title : "Avenida Europa 14, 28108 Alcobendas, Madrid"
-              
-            });
-          }
-        </script>
-        
-        <script async defer
-                accesskey=""src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFpuyGMRIUr_NuGVxQtOtb752biDCDhXw&callback=initMap">
-        </script>-->
         <script src="{{ asset('js/app.js') }}"></script>
-        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->    
+ 
     </body>
 </html>
