@@ -23,7 +23,7 @@ class CategoriasController extends Controller
     public function index(Request $request)
     {    
         $categorias= Categoria::all();       
-        $productos = Producto::paginate(6); 
+        $productos = Producto::paginate(5); 
         return view('categorias.index', compact('categorias','productos'));
            
     }
