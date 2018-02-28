@@ -61,4 +61,12 @@ class HomeController extends Controller
         $user->save();
         return view('perfil')->with('mensaje', 'Perfil guardado!!');;
     }
+    public function baja(Request $request) {
+        $user = Auth::user(); 
+        Auth::logout();
+        $user->delete();
+        echo '<script type="text/javascript"> alert("Perfil eliminado");</script>';
+        return redirect()->action('CategoriasController@index');
+        
+    }
 }

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Input;
 use App\Categoria;
 use App\Producto;
 use App\Http\Controllers\Controller;
+use Redirect;
 //use App\Http\Request;
 
 class CategoriasController extends Controller
@@ -35,7 +36,7 @@ class CategoriasController extends Controller
      */
     public function create()
     {
-        //
+        return view('categorias.create');  
     }
 
     /**
@@ -44,9 +45,12 @@ class CategoriasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $input = Input::all();
+	Categoria::create( $input );
+ 
+	return Redirect::route('categorias.index');
     }
 
     /**

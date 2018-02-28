@@ -23,7 +23,14 @@ Route::get('/mapas', 'SoapController@index');
 Route::get('/buscar','HomeController@buscar');
 Route::get('/ordena','HomeController@ordena');
 Route::get('/editarPerfil','HomeController@editarPerfil');
-Route::view('/perfil','perfil');
+Route::get('/baja','HomeController@baja');
+Route::get('/perfil',function(){
+    if(Auth::user()){
+        return view('perfil');
+    }else{
+        return view('auth.login');
+    }   
+});
 Route::resource('categorias', 'CategoriasController');
 Route::resource('categorias.productos', 'ProductosController');
 

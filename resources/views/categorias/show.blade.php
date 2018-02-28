@@ -6,6 +6,11 @@
 
     @endcomponent 
     <h5><a href="{{ route('categorias.index') }}">{{ 'Principal >' }}</a>{{ $categoria->name }}</h5>
+
+    <a href="{{ route('categorias.productos.create',$categoria) }}">
+        Crear producto
+    </a>                        
+
     <br>
     <main class="container-fluid">
         <div class="col-md-8 col-lg-8"> 

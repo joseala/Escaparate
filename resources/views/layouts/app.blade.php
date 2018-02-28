@@ -108,6 +108,17 @@
                                             Perfil
                                         </a>                        
                                     </li>
+                                    <li>
+                                        <a href="/baja">
+                                            Dar de Baja
+                                        </a>                        
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('categorias.create') }}">
+                                            Crear categoria
+                                        </a>                        
+                                    </li>
+                                    
                                 </ul>
                             </li>
                            
@@ -134,7 +145,7 @@
             function initMap() {
               map = new google.maps.Map(document.getElementById('mapa'), {
                 center: {lat: lat , lng: lng },
-                zoom: 5 
+                zoom: 8 
               });
               marker = new google.maps.Marker({
                 position: {lat: lat , lng: lng },

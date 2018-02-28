@@ -9,6 +9,7 @@ use App\Categoria;
 use App\Producto;
 use App\Http\Controllers\Controller;
 //use App\Http\Request;
+use Redirect;
 
 class ProductosController extends Controller
 {
@@ -30,9 +31,9 @@ class ProductosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Categoria $categoria)
     {
-        //
+        return view('productos.create', compact('categoria'));  
     }
 
     /**
@@ -41,9 +42,15 @@ class ProductosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Producto $producto, Request $request)
+    public function store(Categoria $categoria)
     {
-        //
+        $input = Input::all();
+	$input['categoria_id'] = $categoria->id;
+	Producto::create( $input );
+ 
+	$categorias= Categoria::all();
+        return view('categorias.show',compact('categoria', 'categorias'));
+
     }
 
     /**
