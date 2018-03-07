@@ -18,7 +18,7 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" ></script> 
 
     </head>
-    <body>
+    <body onload="draw();">
         <div id="app">
             <nav class="navbar navbar-default navbar-static-top">
                 <div class="container-fluid login">
@@ -113,11 +113,15 @@
                                             Dar de Baja
                                         </a>                        
                                     </li>
-                                    <li>
-                                        <a href="{{ route('categorias.create') }}">
-                                            Crear categoria
-                                        </a>                        
-                                    </li>
+                                    
+                                    @if(Gate::allows('create-user'))
+                                        <li>
+                                            <a href="{{ route('categorias.create') }}">
+                                                Crear categoria
+                                            </a>                        
+                                        </li>
+                                    @endif
+                                        
                                     
                                 </ul>
                             </li>

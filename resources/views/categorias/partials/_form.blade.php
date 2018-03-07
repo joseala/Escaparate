@@ -4,11 +4,11 @@
         <div class="form-group">
             <h2>Crear categoria</h2>
             {!! Form::label('name', 'Nombre:') !!}
-            {!! Form::text('name') !!}
+            {!! Form::text('name',null,['class' => 'input-group']) !!}
         </div>
         <div class="form-group">
             {!! Form::label('imagen', 'Ruta imagen:') !!}
-            {!! Form::text('imagen') !!}
+            {!! Form::text('imagen',null,['class' => 'input-group']) !!}
         </div>
         <div class="form-group">
             {!! Form::submit($submit_text, ['class'=>'btn primary']) !!}

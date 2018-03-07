@@ -31,6 +31,7 @@ Route::get('/perfil',function(){
         return view('auth.login');
     }   
 });
+
 Route::resource('categorias', 'CategoriasController');
 Route::resource('categorias.productos', 'ProductosController');
 

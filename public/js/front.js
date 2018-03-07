@@ -114,4 +114,19 @@ function startApp() {
     });
   });
 }
+function draw() {
+    var canvas = document.getElementById("tacha");
+    if (canvas && canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+        if (ctx) {
+                ctx.lineWidth = 3;
+                ctx.strokeStyle = "#f00";
+                ctx.beginPath();
+                ctx.moveTo(20, 60);
+                ctx.lineTo(60, 30);
+                ctx.stroke();
+        }
+    }
+}
+
             

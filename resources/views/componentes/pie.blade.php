@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="col-md-3 footer-social animated fadeInDown">
-            	<h4>Follow Us</h4>
+            	<h4>Síguenos</h4>
             	<ul>
                 	<li><a href="#">Facebook</a></li>
                 	<li><a href="#">Twitter</a></li>

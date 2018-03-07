@@ -93,6 +93,22 @@ img.imgd{
     margin-top: 4em;
     
 }
+.descrip h5{
+    font-family: "DESCRIP";
+    font-size: 180%;
+}
+.tachado{
+    width: 1.5em;
+    height: 1em;
+    border: 1px solid black;
+    text-align: center;
+ 
+}
+#tacha{
+    position: absolute;
+    left: 7.5em;
+    bottom: 12em;
+}
 @font-face {
   font-family: "RAVIE";
   src: url(../font/RAVIE.TTF);
@@ -105,4 +121,8 @@ img.imgd{
 @font-face {
 	font-family: "ROCK";
   src: url(../font/rockwebb.ttf);
+}
+@font-face {
+  font-family: "DESCRIP";
+  src: url(../font/descrip.TTF);
 }

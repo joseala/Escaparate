@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Auth\Access\Gate;
+
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -34,7 +36,6 @@ class RouteServiceProvider extends ServiceProvider
         Route::bind('categoria', function($value, $route) {
             return \App\Categoria::whereId($value)->first();
         });
-        
         
     }
 
